@@ -1,0 +1,189 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cies Resume/CV
+% LaTeX Template
+% Version 1.0 (10/2/14)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+%% Extensively updated by Matt Menzenski (menzenski@ku.edu)
+%% (headedsection, headedsubsection, and bodytext environments were
+%% redefined to utilize minipages---this makes the right side of the
+%% page less cluttered.)
+%
+% Original author:
+% Cies Breijs (cies@kde.nl)
+% https://github.com/cies/resume with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% LOAD AND SETUP PACKAGES
+
+\usepackage[margin=0.75in]{geometry} % Adjusts the margins
+
+\usepackage{multicol} % Required for multiple columns of text
+
+\usepackage{etaremune} % Required for reverse-order enumeration
+
+\usepackage{mdwlist} % Required to fine tune lists with a inline
+                     % headings and indented content
+
+\usepackage{calc} % Required for the new headedsection and
+                  % headedsubsection commands
+
+\usepackage{relsize} % Required for the \textscale command for custom
+                     % small caps text
+
+\usepackage[pdftex]{hyperref} % Required for customizing links
+\usepackage{xcolor} % Required for specifying custom colors
+
+\definecolor{KUCrimson}{RGB}{232,0,13} % Official U of Kansas Crimson
+\definecolor{KUBlue}{RGB}{0,34,180} % Official U of Kansas Blue
+\hypersetup{colorlinks,linkcolor={KUBlue},citecolor={KUBlue},urlcolor={KUBlue}}
+% Assigns the KU Blue color to all links in the template
+
+%% begin user-defined text formatting commands
+\newcommand{\russ}[1]{{\em #1}}                % RUSSIAN TEXT
+\newcommand{\engl}[1]{`#1'}                    % ENGLISH TRANSLATION
+\newcommand{\quot}[1]{``#1''}                    % QUOTATION
+%%   end user-defined text formatting commands
+
+
+\usepackage{tgpagella} % Use the TeX Gyre Pagella font throughout the
+                       % document
+\usepackage[T1]{fontenc}
+\usepackage{microtype} % Slightly tweaks character and word spacings
+                       % for better typography
+
+\pagestyle{plain}
+%----------------------------------------------------------
+%	DEFINE STRUCTURAL COMMANDS
+%----------------------------------------------------------
+
+\newenvironment{indentsection} % Defines the indentsection environment
+                               % which indents text in sections titles
+{\begin{list}{}{\setlength{\leftmargin}{\newparindent}\setlength{\parsep}{0pt}\setlength{\parskip}{0pt}\setlength{\itemsep}{0pt}\setlength{\topsep}{0pt}}}{\end{list}}
+
+\newcommand*\maintitle[2]{\noindent{\LARGE \textbf{#1}}\ \ \
+  \emph{#2}\vspace{0.3em}} % Main title (name) with date of birth or
+                           % subtitle
+
+\newcommand\maintitledate[3]{\vbox to 0pt{\hfill\scriptsize\color{gray}
+    #3}\vspace{-0.4em}\noindent{\LARGE \textbf{#1}}\ \ \ \emph{#2}}% main title (name) with subtitle (date)
+
+
+\newcommand*\roottitle[1]{\subsection*{#1}\vspace{-0.3em}\nopagebreak[4]}
+% Top level sections in the template
+
+\newcommand{\headedsection}[3]{\nopagebreak[4]%
+\hfill%
+\begin{minipage}[t]{\headedsectiontitlewidth}%
+\textscale{1.1}{#1}%
+\end{minipage}%
+\noindent%
+\begin{minipage}[t]{\locationwidth}%
+\hfill%
+{\sc #2}%
+\end{minipage}%
+\noindent%
+%\\%
+#3%
+\nopagebreak%
+}
+
+\newcommand{\headedsubsection}[3]{\nopagebreak[4]%
+\hfill%
+\begin{minipage}[t]{\headedsubsectiontitlewidth}%
+\textbf{#1}%
+\end{minipage}%
+\noindent%
+\begin{minipage}[t]{\datewidth}%
+\hfill%
+{\em #2}%
+\end{minipage}%
+%\noindent%
+\\%
+#3%
+\nopagebreak%
+}
+
+\newcommand{\bodytext}[1]{\nopagebreak[2]%
+\hfill%
+\begin{minipage}[t]{\bodytextwidth}%
+#1%
+\end{minipage}%
+\noindent%
+\begin{minipage}[t]{\locationwidth}
+~
+\end{minipage}
+\nopagebreak%
+}
+
+\newcommand{\inlineheadsection}[2]{\begin{basedescript}{\setlength{\leftmargin}{\doubleparindent}}\item[\hspace{\newparindent}\textbf{#1}]#2\end{basedescript}\vspace{-1.7em}}
+% Section title where body text starts immediately after the title
+
+\newcommand*\acr[1]{\textscale{.85}{#1}} % Custom acronyms command
+
+\newcommand*\bull{\ \
+  \raisebox{-0.365em}[-1em][-1em]{\textscale{4}{$\cdot$}} \ } % Custom
+                                % bullet point for separating content
+
+\newlength{\newparindent} % It seems not to work when simply using \parindent...
+\addtolength{\newparindent}{\parindent}
+
+\newlength{\doubleparindent} % A double \parindent...
+\addtolength{\doubleparindent}{\parindent}
+
+% Widths for new headed section
+\newlength{\headedsectionmaxwidth}
+\setlength\headedsectionmaxwidth{\textwidth}
+\addtolength{\headedsectionmaxwidth}{-\newparindent}
+
+\newlength{\locationwidth}
+\settowidth{\locationwidth}{{\sc Albuquerque, New Mexico}}
+\addtolength{\locationwidth}{1em}
+
+\newlength{\headedsectiontitlewidth}
+\setlength\headedsectiontitlewidth{\headedsectionmaxwidth}
+\addtolength{\headedsectiontitlewidth}{-\locationwidth}
+
+% Widths for new headed subsections
+\newlength{\headedsubsectionmaxwidth}
+\setlength\headedsubsectionmaxwidth{\headedsectionmaxwidth}
+\addtolength{\headedsubsectionmaxwidth}{-\newparindent}
+
+\newlength{\datewidth}
+\setlength{\datewidth}{\locationwidth}
+
+\newlength{\headedsubsectiontitlewidth}
+\setlength\headedsubsectiontitlewidth{\headedsubsectionmaxwidth}
+\addtolength{\headedsubsectiontitlewidth}{-\datewidth}
+
+% Widths for new bodytext commands
+
+\newlength{\bodytextwidth}
+\setlength{\bodytextwidth}{\textwidth}
+\addtolength{\bodytextwidth}{-3\newparindent}
+\addtolength{\bodytextwidth}{-\locationwidth}
+
+\newcommand{\breakvspace}[1]{\pagebreak[2]\vspace{#1}\pagebreak[2]} % A custom vspace command with custom before and after spacing lengths
+\newcommand{\nobreakvspace}[1]{\nopagebreak[4]\vspace{#1}\nopagebreak[4]}
+% A custom vspace command with custom before and after spacing lengths
+% that do not break the pages
+
+\newcommand{\spacedhrule}[2]{\breakvspace{#1}\hrule\nobreakvspace{#2}}
+% Defines a horizontal line with some vertical space before and after
+% it
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%\def\LyX{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\spacefactor1000}
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}

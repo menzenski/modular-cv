@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cies Resume/CV
+% LaTeX Template
+% Version 1.0 (10/2/14)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+%% Updated by Matt Menzenski (menzenski@ku.edu)
+%% (headedsection, headedsubsection, and bodytext environments were
+%% redefined to utilize minipages---this makes the right side of the
+%% page less cluttered.)
+%
+% Original author:
+% Cies Breijs (cies@kde.nl)
+% https://github.com/cies/resume with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-----------------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper]{article} %% Font size (10-12pt) and
+                                %% paper size (a4paper, letterpaper,
+                                %% legalpaper, etc) 
+
+\include{structure} %% Include structure.tex which contains packages
+                    %% and document layout definitions
+
+\begin{document} 
+
+\input{cv-sections-public/basicinformation} % 
+
+%% I don't like the 'summary' section, but it's here if needed
+\input{cv-sections-public/summary} %
+
+\input{cv-sections-public/education} %
+\input{cv-sections-public/teaching} %           
+\input{cv-sections-public/employment} %         
+\input{cv-sections-public/invitedtalks} %
+\input{cv-sections-public/conferencepresentations}
+
+%%%%% ------------------------------------------------------
+%% BEGIN MASTER-ONLY SECTIONS
+%% I like having a 'master' CV which includes EVERYTHING I've
+%% done. Uncomment these sections to generate a CV suitable for your
+%% own private records, or leave them commented out in order to
+%% generate a shorter CV suitable for more public uses.
+\input{cv-sections-master/mockconferencepresentations} % 
+\input{cv-sections-master/attendedconferences} %
+\input{cv-sections-master/attendedworkshops} %
+\input{cv-sections-master/attendedtalks} % 
+\input{cv-sections-master/attendedconferencepresentations} %
+\input{cv-sections-master/attendedpracticetalks} %
+\input{cv-sections-master/filmscreeningsattended} % 
+\input{cv-sections-master/eventsattended} %
+%% END MASTER-ONLY SECTIONS
+%%%%% ------------------------------------------------------
+
+\input{cv-sections-public/grantshonorsawards} %
+\input{cv-sections-public/service} %
+\input{cv-sections-public/skills} %
+\input{cv-sections-public/interests} %
+
+\end{document}
